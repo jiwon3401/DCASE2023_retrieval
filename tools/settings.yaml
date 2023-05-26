@@ -1,0 +1,41 @@
+mode: 'train'
+exp_name: 'exp'
+dataset: 'Clotho' #'Clotho_new'
+text_encoder: 'sbert' # 고정
+joint_embed: 300 # 고정
+
+wav:
+  sr: 32000 
+  window_size: 1024
+  hop_length: 320
+  mel_bins: 64
+
+cnn_encoder:
+  model: 'Cnn14' #'Cnn14','ResNet38', 'Wavegram_Logmel_Cnn14'
+  pretrained: Yes
+  freeze: Yes
+
+data:
+  batch_size: 64 #64
+  num_workers: 0 # DDP_spawn 요구사항 0
+  val_datasets_size: 0 # 고정
+  test_datasets_size: 0 # 고정
+
+training:
+  margin: 0.2
+  freeze: No
+  loss: ntxent  # 'infonce' 'triplet', 'weight', 'ntxent', 'bidirect','infonce+vicreg'
+  spec_augmentation: Yes
+  epochs: 50
+  lr: !!float 1e-4
+  clip_grad: 2
+  seed: 20
+  resume: No
+  l2_norm: Yes
+  dropout: 0.2
+  csv: False
+
+path:
+  vocabulary: 'data/{}/pickles/words_list.p'
+  word2vec: 'pretrained_models/w2v_all_vocabulary.model'
+  resume_model: ''
