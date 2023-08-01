@@ -124,7 +124,7 @@ class BiDirectionalRankingLoss(nn.Module):
 
 
 
-class WeightTriplet(nn.Module): #코드 이상함 이거
+class WeightTriplet(nn.Module): 
     """
     Compute contrastive loss
     """
