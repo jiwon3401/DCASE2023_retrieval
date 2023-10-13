@@ -101,9 +101,6 @@ caption_mean4567 = np.mean([temporal_dict4['cap_embs'], temporal_dict5['cap_embs
 t2a(audio_mean4567, caption_mean4567) #23.59
 
 
-
-#-------------------------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------
 #same model, different loss(ntxent, triplet-max, triplet-sum, triplet-weighted), same seed(=1234)
 pickle_path_a = '/home/user/audio-text_retrieval/outputs/0511_diff2_freeze_True_lr_0.0001_seed_1234/pickle/temporal_embeddings.pkl'
@@ -123,10 +120,7 @@ with open(pickle_path_c, 'rb') as f:
 with open(pickle_path_d, 'rb') as f:  
     pickle_d=pickle.load(f)
 
-# print(t2a(pickle_a['audio_embs'],pickle_a['cap_embs']))
-# print(t2a(pickle_b['audio_embs'],pickle_b['cap_embs']))
-# print(t2a(pickle_c['audio_embs'],pickle_c['cap_embs']))
-# print(t2a(pickle_d['audio_embs'],pickle_d['cap_embs']))
+
 
 audio_4loss = np.mean([pickle_a['audio_embs'], pickle_b['audio_embs'],
                       pickle_c['audio_embs'], pickle_d['audio_embs']], axis=0)

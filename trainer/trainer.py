@@ -47,26 +47,6 @@ class Task(pl.LightningModule):
         #     self.csv_output_dir.mkdir(parents=True, exist_ok=True)
 
 
-        '''
-        This is for logger
-
-        logger.add(sys.stdout, format='{time: YYYY-MM-DD at HH:mm:ss} | {message}', level='INFO',
-                filter=lambda record: record['extra']['indent'] == 1)
-        logger.add(config.log_output_dir.joinpath('output.txt'), format='{time: YYYY-MM-DD at HH:mm:ss} | {message}', level='INFO',
-                filter=lambda record: record['extra']['indent'] == 1)
-
-        self.main_logger = logger.bind(indent=1)
-
-        # setup TensorBoard
-        writer = SummaryWriter(log_dir=str(self.log_output_dir) + '/tensorboard')
-    
-
-        # print training settings
-        printer = PrettyPrinter()
-        self.main_logger.info('Training setting:\n'
-                        f'{printer.pformat(config)}')
-        '''
-
         # set up model
         # if torch.cuda.is_available():
         #     device, device_name = ('cuda',torch.cuda.get_device_name(torch.cuda.current_device()))
